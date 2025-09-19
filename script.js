@@ -40,7 +40,8 @@ let correctAnswers = 0;
 
 function showQuestion() {
   const q = quizQuestions[currentQuestion];
-  document.getElementById('question').textContent = q.question;
+  
+  document.getElementById('question').textContent = `${currentQuestion + 1}. ${q.question}`;
   const optionsDiv = document.getElementById('options');
   optionsDiv.innerHTML = '';
   q.options.forEach((opt, idx) => {
@@ -81,7 +82,26 @@ function nextQuestion() {
 }
 
 function showResult() {
-  document.getElementById('quiz-container').innerHTML = `<div class='result'>Quiz finished!<br>Correct answers: ${correctAnswers} / ${quizQuestions.length}</div>`;
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = `<div class='result'>Quiz finished!<br>Correct answers: ${correctAnswers} / ${quizQuestions.length}</div>`;
+  // Create a stylish restart button
+  const restartBtn = document.createElement('button');
+  restartBtn.textContent = 'Restart Quiz';
+  restartBtn.className = 'restart-btn';
+  restartBtn.onclick = function() {
+    currentQuestion = 0;
+    correctAnswers = 0;
+    quizQuestions = getQuestions();
+    // quiz-container'ı eski haline döndür
+    container.innerHTML = `
+      <div id="question" class="question"></div>
+      <div id="options" class="options"></div>
+      <button id="next-btn" class="next-btn" style="display:none;">Next</button>
+    `;
+    document.getElementById('next-btn').onclick = nextQuestion;
+    showQuestion();
+  };
+  container.appendChild(restartBtn);
 }
 
 document.getElementById('next-btn').onclick = nextQuestion;

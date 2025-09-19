@@ -86,6 +86,26 @@ body {
 	font-weight: 700;
 }
 
+/* Stylish Restart Button */
+.restart-btn {
+	display: inline-block;
+	margin-top: 24px;
+	padding: 12px 32px;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: #fff;
+	background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+	border: none;
+	border-radius: 30px;
+	box-shadow: 0 4px 16px rgba(238,9,121,0.15);
+	cursor: pointer;
+	transition: background 0.3s, transform 0.2s;
+}
+.restart-btn:hover {
+	background: linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+	transform: scale(1.05);
+}
+
 @media (max-width: 600px) {
 	.quiz-container {
 		max-width: 98vw;
