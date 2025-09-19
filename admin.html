@@ -21,10 +21,36 @@
         .add-form .option-row { display: flex; gap: 8px; align-items: center; }
         .add-form .option-row input { flex: 1; }
         .add-form .correct-radio { margin-left: 8px; }
-        @media (max-width: 600px) { .admin-container { max-width: 98vw; padding: 16px 6px; } }
+        .admin-link-btn {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(25,118,210,0.08);
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            z-index: 10;
+        }
+        .admin-link-btn:hover {
+            background: #1565c0;
+            box-shadow: 0 4px 16px rgba(25,118,210,0.13);
+        }
+        @media (max-width: 600px) {
+            .admin-container { max-width: 98vw; padding: 16px 6px; }
+            .admin-link-btn { top: 12px; right: 8px; padding: 8px 14px; font-size: 0.98rem; }
+        }
     </style>
 </head>
 <body>
+    <button class="admin-link-btn" onclick="window.location.href='index.html'">
+        <span style="vertical-align:middle;">&#8592; Quiz Page</span>
+    </button>
     <div class="admin-container">
         <div class="admin-title">Manage Quiz Questions</div>
         <form class="add-form" id="addForm">
