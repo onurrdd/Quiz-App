@@ -1,24 +1,6 @@
 // LocalStorage key for quiz questions
 const STORAGE_KEY = 'quizQuestions';
 
-// Default quiz questions (English)
-const defaultQuestions = [
-    {
-        question: "What is the capital of France?",
-        options: ["Berlin", "Madrid", "Paris", "Rome"],
-        correct: 2
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Mars", "Jupiter", "Venus"],
-        correct: 1
-    },
-    {
-        question: "Who wrote 'Hamlet'?",
-        options: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
-        correct: 1
-    }
-];
 
 function getQuestions() {
   const data = localStorage.getItem(STORAGE_KEY);
@@ -116,10 +98,6 @@ function setupAddForm() {
 // Load questions from localStorage or set defaults
 function loadQuestions() {
     let questions = JSON.parse(localStorage.getItem('quizQuestions'));
-    if (!questions || !Array.isArray(questions) || questions.length === 0) {
-        questions = defaultQuestions;
-        localStorage.setItem('quizQuestions', JSON.stringify(questions));
-    }
     return questions;
 }
 

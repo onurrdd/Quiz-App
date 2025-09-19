@@ -28,9 +28,15 @@ const defaultQuestions = [
   }
 ];
 
+
+// Save default questions to localStorage if not present
+if (!localStorage.getItem(STORAGE_KEY)) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultQuestions));
+}
+
 function getQuestions() {
   const data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : defaultQuestions;
+  return data ? JSON.parse(data) : [];
 }
 
 let quizQuestions = getQuestions();
