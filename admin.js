@@ -41,7 +41,7 @@ function renderQuestions() {
     const div = document.createElement('div');
     div.className = 'question-item';
     div.innerHTML = `<b>Q${idx+1}:</b> ${q.question}<br>
-      <b>Options:</b> ${q.options.map((opt,i) => `<span${i===q.answer?' style=\'color:#43a047;font-weight:600;\'' : ''}>${opt}</span>`).join(', ')}<br>
+      <b>Options:</b> ${q.options.map((opt,i) => `<span${i===q.answer?' ' : ''}>${opt}</span>`).join(', ')}<br>
       <b>Correct:</b> ${q.options[q.answer]}`;
     const actions = document.createElement('div');
     actions.className = 'question-actions';
