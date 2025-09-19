@@ -1,7 +1,5 @@
 // LocalStorage key for quiz questions
 const STORAGE_KEY = 'quizQuestions';
-
-
 function getQuestions() {
   const data = localStorage.getItem(STORAGE_KEY);
   return data ? JSON.parse(data) : [];
@@ -106,4 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const questions = loadQuestions();
     renderQuestions(questions);
     setupAddForm();
+
+    // Reset button logic
+    document.getElementById('resetQuestionsBtn').onclick = function() {
+      if (confirm('Are you sure you want to reset all questions to default?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultQuestions));
+        renderQuestions(); // Yeniden yükle
+      }
+    };
 });
